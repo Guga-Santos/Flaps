@@ -56,6 +56,14 @@ window.addEventListener('mousedown', function(){
     spacePress = false;
    });
 
+   window.addEventListener('touchstart', function(){
+    spacePress = true;
+   });
+
+   window.addEventListener('touchend', function(){
+    spacePress = false;
+   });
+
 button.addEventListener('click', () => {
     window.location.reload()
 })
