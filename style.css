@@ -1,0 +1,25 @@
+body {
+
+    width: 99;
+    height: 98vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#canvas1 {
+    background: black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 400px;
+    border: 2px solid black;
+}
+
+#button {
+    position: absolute;
+    top: 80vh;
+}
