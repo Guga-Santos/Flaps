@@ -21,5 +21,10 @@ body {
 
 #button {
     position: absolute;
-    top: 80vh;
+    top: 85vh;
+}
+
+h2 {
+    position: absolute;
+    top: 2vh;
 }
