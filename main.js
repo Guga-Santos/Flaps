@@ -27,8 +27,8 @@ function animate(){
     char.draw();
     ctx.fillStyle = scoreColor;
     ctx.font = '40px Georgia';
-    ctx.strokeText(score, 550, 40);
-    ctx.fillText(score, 550, 40);
+    ctx.strokeText(score, canvas.width - 50, 40);
+    ctx.fillText(score, canvas.width -50, 40);
     angle += 0.1;
     hue += 1;
     frame += 1;
