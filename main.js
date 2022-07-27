@@ -4,12 +4,17 @@ canvas.width = 600;
 canvas.height = 400;
 
 const button = document.getElementById('button');
+const audio = document.getElementById('audio');
+
+audio.volume = 0.2;
 
 let spacePress = false;
 let angle = 0;
 let hue = 0;
 let frame = 0;
+let frameC = 0;
 let score = 0;
+let coinScore = 0;
 let gameSpeed = 2;
 let scoreColor = 'red';
 
@@ -27,15 +32,23 @@ function animate(){
     char.draw();
     ctx.fillStyle = scoreColor;
     ctx.font = '40px Georgia';
-    ctx.strokeText(score, canvas.width - 50, 40);
-    ctx.fillText(score, canvas.width -50, 40);
+    ctx.strokeText(score, canvas.width - 80, 40);
+    ctx.fillText(score, canvas.width -80, 40);
+    ctx.fillStyle = 'yellow';
+    ctx.font = '30px Georgia';
+    ctx.strokeText(`Coins: ${coinScore}`, canvas.width - 130, 380);
+    ctx.fillText(`Coins: ${coinScore}`, canvas.width -130, 380);
     angle += 0.1;
     hue += 1;
     frame += 1;
+    frameC += 1;
     handleParticles(); 
+    handleCoins();
     collision();
     if (collision()) return;
     requestAnimationFrame(animate);
+
+    
 };
 
 animate();
@@ -84,6 +97,10 @@ button.addEventListener('click', () => {
             ctx.font = '20px Georgia';
             ctx.strokeText(`Sua pontuação foi: ${score}`, 200, 250);
             ctx.fillText(`Sua pontuação foi: ${score}`, 200, 250);
+            ctx.fillStyle = 'yellow';
+            ctx.font = '15px Georgia';
+            ctx.strokeText(`Você coletou: ${coinScore} moedas`, 210, 270);
+            ctx.fillText(`Você coletou: ${coinScore} moedas`, 210, 270);
             return true;
         }
     }

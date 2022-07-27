@@ -6,8 +6,8 @@ class Char {
         this.width = 20;
         this.height = 20;
         this.weight = 1;
-        this.frameWidth = 32;
-        this.frameHeight = 32;
+        this.frameWidth = 46;
+        this.frameHeight = 30;
         this.frameIndex = 0;
         this.scale = 1.2;
         this.color = 'red'
@@ -17,9 +17,9 @@ class Char {
     
 
     update(){
-        let curve = Math.sin(angle) * 20
-        if (this.y > canvas.height - (this.height * 2.5) + curve) {
-            this.y = canvas.height - (this.height * 2.5) + curve;
+        let curve = Math.sin(angle) * 10
+        if (this.y > canvas.height - (this.height * 2) + curve) {
+            this.y = canvas.height - (this.height * 2) + curve;
             this.vy = 0
         } else {
             this.vy += this.weight;
@@ -31,7 +31,7 @@ class Char {
             this.y = 0 + this.height;
             this.vy = - 1;
         }
-        if (spacePress  &&  this.y > this.height * 3) this.flap();
+        if (spacePress  &&  this.y > this.height) this.flap();
 
        this.counter += 1
 
@@ -40,7 +40,7 @@ class Char {
         this.counter = 0;
        }
 
-       if(this.frameIndex > 8) {
+       if(this.frameIndex > 6) {
         this.frameIndex = 0
        }
 
@@ -57,7 +57,7 @@ class Char {
         bird.src = './images/FlyingBird.png'
 
         ctx.drawImage(
-            bird, //imagem
+            bat, //imagem
             this.frameIndex * this.frameWidth, // X
             0, // Y
             this.frameWidth, // Comprimento do frame recortado da imagem
